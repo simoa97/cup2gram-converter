@@ -1,4 +1,6 @@
 # Simple application that converts food value in cups to grams
+
+# conversion values
 from database import food_list
 
 # loop for keeping the program running
