@@ -1,27 +1,5 @@
 # Simple application that converts food value in cups to grams
-
-# list of food, key is name, value is 1 cup in grams
-food = {
-    'flour':120,
-    'carrot':122,
-    'brocolli':175,
-    'onion':52,
-    'sugar':200,
-    'powdered sugar':120,
-    'butter':227,
-    'rice':200,
-    'oats':85,
-    'almonds':145,
-    'canned tomatoes':225,
-    'yogurt':227,
-    'celery':100,
-    'cheddar':235,
-    'bluberries':155,
-    'mozzarella':113,
-    'zucchini':130,
-    'olives':142,
-    'cranberries':105
-}
+from database import food_list
 
 # loop for keeping the program running
 print('===== Cups to grams conventer =====')
@@ -31,7 +9,7 @@ while converter_status == True:
     # name of the food and validate
     while True:
         user_input = input('Name of the food (singular): ')
-        if user_input.lower() in food:
+        if user_input.lower() in food_list:
             break
         else:
             print(
@@ -54,8 +32,8 @@ while converter_status == True:
                 continue
         
     # conversion
-    if user_input.lower() in food:
-        gram_value = float(cups_value) * food[user_input]
+    if user_input.lower() in food_list:
+        gram_value = float(cups_value) * food_list[user_input]
         print(
             str(cups_value) + ' cups of ' + user_input + ' is ' + 
             str(gram_value) +'g.')
