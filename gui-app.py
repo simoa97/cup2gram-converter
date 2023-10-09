@@ -3,6 +3,7 @@ from tkinter import *
 from tkinter import ttk
 import sys
 
+# creating the root window and config
 root = Tk() # main window
 root.title('Cups2grams')
 root.minsize(310,410)
@@ -24,12 +25,10 @@ output_text = Text(root, width=24, height=3)
 for a in food_list:
     ingredient_choser.insert(END, a)
 
-#ingredient = food_list[x]
-
 
 def converter(cups):
     """Conversion of cups to grams"""
-    ingredient = ingredient_choser.get(ingredient_choser.curselection())
+    ingredient = ingredient_choser.get(ingredient_choser.curselection()) # get selected item from list box 
     gram_value = float(cups) * float(food_list[ingredient])
     print(gram_value)
 
@@ -42,3 +41,7 @@ convert_value.pack(anchor='center')
 output_text.pack()
 
 root.mainloop()
+
+
+# need to create input for cups value
+# need to print out the conversion
