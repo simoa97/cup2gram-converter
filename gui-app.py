@@ -31,7 +31,7 @@ for a in food_list:
 def converter(cups):
     """Conversion of cups to grams"""
     ingredient = ingredient_choser.get(ingredient_choser.curselection()) # get selected item from list box 
-    cups = input_value.get(1.0, "end-1c") # 
+    cups = input_value.get(1.0, "end-1c") # get inputed value of cups
     gram_value = float(cups) * float(food_list[ingredient])
     print(gram_value)
 
