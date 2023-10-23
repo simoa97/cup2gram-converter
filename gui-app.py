@@ -1,7 +1,5 @@
 from database import food_list
 from tkinter import *
-from tkinter import ttk
-# import sys
 
 # creating the root window and config
 root = Tk() # main window
@@ -19,7 +17,7 @@ ingredient_choser = Listbox(root, selectmode=SINGLE, width=24)
 text3 = Label(root, text='2. Input number of Cups',pady=3)
 input_value = Text(root, width=5, height=1, pady=3)
 convert_value = Button(root, text='Convert', command= lambda: converter(1)
-                       ) 
+                       )
 output_text = Text(root, width=24, height=3)
 
 
@@ -30,10 +28,12 @@ for a in food_list:
 
 def converter(cups):
     """Conversion of cups to grams"""
+    output_text.delete(1.0,END) # clear the text box
     ingredient = ingredient_choser.get(ingredient_choser.curselection()) # get selected item from list box 
     cups = input_value.get(1.0, "end-1c") # get inputed value of cups
     gram_value = float(cups) * float(food_list[ingredient])
-    print(gram_value)
+    output_text.insert(END ,str(cups) + ' cups of ' + ingredient + ' is ' +
+                        str(gram_value)+'g')
 
 
 # arrangement of the GUI
@@ -46,7 +46,3 @@ convert_value.pack(anchor='center')
 output_text.pack()
 
 root.mainloop()
-
-
-# need to create input for cups value
-# need to print out the conversion
