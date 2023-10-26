@@ -1,7 +1,7 @@
 from database import food_list
 from tkinter import *
 
-sorted_food_list = dict(sorted(food_list.items()))
+sorted_food_list = dict(sorted(food_list.items())) # sorting for the list
 
 # creating the root window and config
 root = Tk() # main window
@@ -19,7 +19,7 @@ ingredient_choser = Listbox(root, selectmode=SINGLE, width=24)
 text3 = Label(root, text='2. Input number of Cups',pady=3)
 input_value = Text(root, width=5, height=1, pady=3)
 convert_value = Button(root, text='Convert', command= lambda: converter(1))
-output_text = Text(root, width=20, height=3)
+output_text = Text(root, width=20, height=3, wrap=WORD)
 
 
 # ingredient selector for the list box
