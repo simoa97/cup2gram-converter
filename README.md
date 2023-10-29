@@ -3,20 +3,25 @@ This simple Python application is designed to help you convert food measurements
 __**Work in Progress**__
 
 ### Current state
+cli-app.py is the 1st version of the app which can be used on the command line.
+
 gui-app.py works as functioning converter.
 
 Planning to improve the GUI, add new ingredients and allow for more than cups to grams conversion.
 
 ## Installation
 
-# linux (ubuntu/debian)
-'sudo apt-get update' & 'sudo apt-get install python3'
-download the repository
+### linux (ubuntu/debian)
+```sudo apt-get update```
+ & 
+```sudo apt-get install python3```
 
 ## Usage
 
-# linux (ubuntu/debian)
-launch the program 'python gui-app.py'
+### linux (ubuntu/debian)
+download the gui-app file and launch it 
+
+```python gui-app.py'```
 
 
 ## Contributing
@@ -25,3 +30,4 @@ tbd
 
 ## License
 
+tbd
