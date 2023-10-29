@@ -21,7 +21,7 @@ Planning to improve the GUI, add new ingredients and allow for more than cups to
 ### linux (ubuntu/debian)
 download the gui-app file and launch it 
 
-```python gui-app.py'```
+```python gui-app.py```
 
 
 ## Contributing
