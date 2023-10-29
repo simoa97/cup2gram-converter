@@ -12,13 +12,17 @@ root.geometry("310x410+700+150")
 
 
 # GUI elements
+frame = Frame()
 text = Label(root, text="Cups to grams converter",font=(30), 
              anchor='n',padx=5, pady=5)
 text2 = Label(root, text='1. Select the ingredient')
-ingredient_choser = Listbox(root, selectmode=SINGLE, width=24)
+ingredient_choser = Listbox(frame, selectmode=SINGLE, width=24)
+scrollbar = Scrollbar(frame)
 text3 = Label(root, text='2. Input number of Cups',pady=3)
 input_value = Text(root, width=5, height=1, pady=3)
-convert_value = Button(root, text='Convert', command= lambda: converter(1))
+convert_value = Button(root, text='Convert', 
+                       command= lambda: converter(input_value.get(1.0, "end-1c")))
+                    # get inputed value of cups 
 output_text = Text(root, width=20, height=3, wrap=WORD)
 
 
@@ -31,16 +35,21 @@ def converter(cups):
     """Conversion of cups to grams"""
     output_text.delete(1.0,END) # clear the text box
     ingredient = ingredient_choser.get(ingredient_choser.curselection()) # get selected item from list box 
-    cups = input_value.get(1.0, "end-1c") # get inputed value of cups
     gram_value = float(cups) * float(sorted_food_list[ingredient])
     output_text.insert(END ,str(cups) + ' cups of ' + ingredient + ' is ' +
                         str(gram_value)+'g')
 
 
+# scrollbar for the list box
+scrollbar.config(command = ingredient_choser.yview) 
+ingredient_choser.config(yscrollcommand = scrollbar.set)
+
 # arrangement of the GUI
 text.pack()
 text2.pack()
-ingredient_choser.pack()
+frame.pack()
+ingredient_choser.pack(side="left", fill="y")
+scrollbar.pack(side="right", fill="y")
 text3.pack()
 input_value.pack()
 convert_value.pack(anchor='center')
